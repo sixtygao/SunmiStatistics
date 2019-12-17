@@ -1,0 +1,30 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.3"
+    defaultConfig {
+        applicationId "com.sunmi.sunmistatistics"
+        minSdkVersion 21
+        targetSdkVersion 26
+        versionCode 10000
+        versionName "1.0.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(path: ':sunmistatisticslib')
+//    implementation 'com.sunmi:SunmiStatistics:1.0.0'
+}

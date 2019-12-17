@@ -1,0 +1,49 @@
+apply plugin: 'com.android.library'
+apply plugin: 'org.greenrobot.greendao'
+apply plugin: 'com.novoda.bintray-release'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.3"
+
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 26
+        versionCode 10000
+        versionName "1.0.0"
+
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+
+}
+
+publish {
+    userOrg = 'sunmios'
+    groupId = 'com.sunmi'
+    artifactId = 'SunmiStatistics'
+    publishVersion = '1.0.0'
+    desc = 'first version'
+    website = 'http://www.sunmi.com/'
+    licences = ['Apache-2.0']
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'org.greenrobot:greendao:3.2.2' // add library
+    api 'com.sunmi:SunmiHttpLib:1.0.13'
+    api 'com.sunmi:SunmiToolsLib:1.0.6'
+    api 'io.reactivex.rxjava2:rxjava:2.2.16'
+}
